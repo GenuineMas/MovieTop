@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Movie :  Codable,Identifiable {
+struct Movie :   Codable,Identifiable,Equatable {
     var id =  UUID()
     var poster : String
     var title : String
@@ -23,7 +23,7 @@ struct Movie :  Codable,Identifiable {
     }
 }
 
-struct MovieList : Codable {
+struct MovieList <T: Codable>: Codable {
     var page : Int
     let results : [Movie]
 }
