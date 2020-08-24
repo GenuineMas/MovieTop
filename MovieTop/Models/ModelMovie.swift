@@ -24,6 +24,7 @@ struct Movie :   Codable,Identifiable,Equatable {
 }
 
 struct MovieList <T: Codable>: Codable {
+    
     var page : Int
     let results : [Movie]
 }
