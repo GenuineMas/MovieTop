@@ -19,12 +19,10 @@ struct Movie :   Codable,Identifiable,Equatable {
         case poster = "poster_path"
         case overview
         case title
-    
     }
 }
 
 struct MovieList <T: Codable>: Codable {
-    
     var page : Int
     let results : [Movie]
 }

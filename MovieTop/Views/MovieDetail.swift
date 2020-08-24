@@ -37,7 +37,7 @@ struct MovieDetail : View {
                     .font(.body)
                     .lineSpacing(14)
             }.padding(.all)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,maxHeight: .infinity, alignment: .topLeading)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,maxHeight: .infinity, alignment: .topLeading)
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
