@@ -12,6 +12,7 @@ import SwiftUI
 import Combine
 
 class MoviesViewModel: ObservableObject {
+    private var subscriptions = Set<AnyCancellable>()
     @Published private(set) var state = State()
     @Published var groupState = false
     @Published var groupFromPicker : Int = 0 {
@@ -19,11 +20,10 @@ class MoviesViewModel: ObservableObject {
             didChangeStateOfGroup()
             state.movies = []
             updater()
-         
+            state.canLoadNextPage = true
         }
     }
-    private var subscriptions = Set<AnyCancellable>()
-  
+    
     
     func fetchNextMovieBatch() {
         guard state.canLoadNextPage else { return }
@@ -37,6 +37,7 @@ class MoviesViewModel: ObservableObject {
     private func didChangeStateOfGroup() {
         groupState = true
     }
+    
     func updater() {
         DispatchQueue.main.async {
             self.state.movies = []
